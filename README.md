@@ -1,2 +1,2 @@
 # Concentration-iOS-App
-Mock repository
+Mock repository for testing stuff
