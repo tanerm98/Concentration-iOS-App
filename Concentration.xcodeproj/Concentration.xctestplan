@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "EF8905EF-B13A-43A9-8633-E97632B24CEF",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Concentration.xcodeproj",
+        "identifier" : "BB362A3629EC1B370092C373",
+        "name" : "ConcentrationUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
