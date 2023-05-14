@@ -25,8 +25,8 @@ final class PerformanceTests: XCTestCase {
     }
         
     /// Mocks memory usage increase by 5MB per usage
-    func increaseMemoryUsage() {
-        let numberOfBytes: Int = 5 * 1000 * 1000    // 5MB
+    func increaseMemoryUsage(by megaBytes: Int) {
+        let numberOfBytes: Int = megaBytes * 1000 * 1000    // megaBytes MB
         var buffer = [UInt8](repeating: 1, count: numberOfBytes)
         for i in 0 ..< numberOfBytes {
             buffer[i] = UInt8(i % 7)
@@ -66,7 +66,7 @@ final class PerformanceTests: XCTestCase {
         NSLog("[Performance Testing] START - testLaunch")
         app.launch()
         increaseLatencySeconds(by: 5)
-        increaseMemoryUsage()
+        increaseMemoryUsage(by: 5)
         if let memoryUsageMB = report_memory() {
             NSLog("[Performance Testing] MEMORY_USAGE - testLaunch - \(memoryUsageMB)")
         }
@@ -81,8 +81,7 @@ final class PerformanceTests: XCTestCase {
         increaseLatencySeconds(by: 2)
         app.staticTexts["NEW GAME"].tap()
         increaseLatencySeconds(by: 3)
-        increaseMemoryUsage()
-        increaseMemoryUsage()
+        increaseMemoryUsage(by: 10)
         if let memoryUsageMB = report_memory() {
             NSLog("[Performance Testing] MEMORY_USAGE_MB - testLaunch - \(memoryUsageMB)")
         }
